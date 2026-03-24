@@ -1,0 +1,13 @@
+{
+  "name": "matcha-ui-monorepo",
+  "private": true,
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "dev": "npm run dev --workspace=docs",
+    "build": "npm run build --workspace=docs",
+    "lint": "npm run lint --workspace=docs"
+  }
+}

@@ -1,0 +1,4 @@
+@import "tailwindcss";
+@plugin "tailwindcss-animate";
+@source "../../../../packages/matcha-ui/src/**/*.tsx";
+@import "matcha-ui/styles";
