@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Providers } from "@/components/providers";
 import { SiteFooter } from "@/components/site-footer";
+import { absoluteUrl, getSiteUrl } from "@/lib/site-url";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -14,9 +15,8 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL ??
-  (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "http://localhost:3000");
+const siteUrl = getSiteUrl();
+const ogImageUrl = absoluteUrl("/og.jpg");
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -30,9 +30,10 @@ export const metadata: Metadata = {
     type: "website",
     siteName: "Matcha UI",
     locale: "en_US",
+    url: siteUrl,
     images: [
       {
-        url: "/og.jpg",
+        url: ogImageUrl,
         width: 1024,
         height: 913,
         alt: "Matcha UI — design system for modern SaaS products",
@@ -41,7 +42,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    images: ["/og.jpg"],
+    images: [ogImageUrl],
   },
   icons: {
     icon: [{ url: "/icon.png", type: "image/png", sizes: "160x160" }],
