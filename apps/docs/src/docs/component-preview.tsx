@@ -1,8 +1,9 @@
 "use client";
 
 import * as React from "react";
-import { Terminal } from "phosphor-react";
+import { Terminal, Tray } from "phosphor-react";
 import { toast } from "sonner";
+import { SaasShellPreview } from "./saas-shell-preview";
 import {
   Accordion,
   AccordionContent,
@@ -39,7 +40,12 @@ import {
   LineChartCard,
   BarChartCard,
   DonutChartCard,
+  DataTableToolbar,
+  EmptyState,
   Checkbox,
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
   Command,
   CommandEmpty,
   CommandGroup,
@@ -59,6 +65,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
   Input,
+  KpiCard,
   Label,
   NavigationMenu,
   NavigationMenuContent,
@@ -66,6 +73,7 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
+  PageHeader,
   Pagination,
   PaginationContent,
   PaginationItem,
@@ -251,11 +259,68 @@ const previews: Record<string, React.ReactNode> = {
       />
     </div>
   ),
+  "data-table-toolbar": (
+    <div className="w-full max-w-2xl">
+      <DataTableToolbar
+        start={<Input placeholder="Search…" className="max-w-xs" />}
+        end={
+          <Button variant="outline" size="sm" type="button">
+            Columns
+          </Button>
+        }
+      />
+    </div>
+  ),
+  "empty-state": (
+    <div className="max-w-lg">
+      <EmptyState
+        icon={Tray}
+        title="No projects yet"
+        description="Create a project to organize API keys and environments."
+        action={
+          <Button type="button" size="sm">
+            Create project
+          </Button>
+        }
+      />
+    </div>
+  ),
+  "kpi-card": (
+    <div className="grid w-full max-w-3xl gap-4 sm:grid-cols-3">
+      <KpiCard label="MRR" value="$48.2k" hint="+12% MoM" />
+      <KpiCard label="Seats" value="42" />
+      <KpiCard label="Trials" value="128" />
+    </div>
+  ),
+  "page-header": (
+    <div className="w-full max-w-3xl border-x">
+      <PageHeader
+        title="Customers"
+        description="Manage invitations and billing contacts."
+        actions={
+          <Button size="sm" type="button">
+            Invite
+          </Button>
+        }
+      />
+    </div>
+  ),
+  sidebar: <SaasShellPreview />,
   checkbox: (
     <div className="flex items-center gap-2">
       <Checkbox id="terms-demo" />
       <Label htmlFor="terms-demo">Accept terms</Label>
     </div>
+  ),
+  collapsible: (
+    <Collapsible className="w-full max-w-md rounded-lg border p-4">
+      <CollapsibleTrigger className="hover:bg-accent/50 flex w-full items-center justify-between rounded-md px-2 py-2 text-left text-sm font-medium">
+        Advanced settings
+      </CollapsibleTrigger>
+      <CollapsibleContent className="text-muted-foreground mt-2 px-2 text-sm">
+        Extra workspace options appear here.
+      </CollapsibleContent>
+    </Collapsible>
   ),
   command: (
     <Command className="max-w-md rounded-lg border shadow-md">

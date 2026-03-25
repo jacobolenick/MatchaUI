@@ -2,3 +2,14 @@
 @plugin "tailwindcss-animate";
 @source "../../../../packages/matcha-ui/src/**/*.tsx";
 @import "matcha-ui/styles";
+
+/* Scrollable regions stay scrollable (wheel / trackpad) without showing a scrollbar track. */
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}

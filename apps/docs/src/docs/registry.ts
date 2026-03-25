@@ -606,6 +606,133 @@ import { Textarea } from "matcha-ui";
 </div>`,
   },
   {
+    slug: "collapsible",
+    title: "Collapsible",
+    description: "Expandable sections for settings, filters, and nested nav.",
+    code: `import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "matcha-ui";
+
+<Collapsible>
+  <CollapsibleTrigger>Advanced</CollapsibleTrigger>
+  <CollapsibleContent>
+    Extra options go here.
+  </CollapsibleContent>
+</Collapsible>`,
+  },
+  {
+    slug: "sidebar",
+    title: "Sidebar navigation",
+    description:
+      "Collapsible rail, groups, tooltips, and optional `AppShell` when you need a mobile sheet plus main pane.",
+    code: `import {
+  Avatar,
+  AvatarFallback,
+  AvatarImage,
+  Button,
+  SidebarCollapseTrigger,
+  SidebarContent,
+  SidebarFooter,
+  SidebarHeader,
+  SidebarNav,
+  SidebarNavGroup,
+  SidebarNavLink,
+  SidebarProvider,
+} from "matcha-ui";
+
+const sidebar = (
+  <>
+    <SidebarHeader>Acme</SidebarHeader>
+    <SidebarContent>
+      <SidebarNav>
+        <SidebarNavLink href="/app" isActive>
+          Dashboard
+        </SidebarNavLink>
+        <SidebarNavLink href="/customers">Customers</SidebarNavLink>
+      </SidebarNav>
+      <SidebarNavGroup label="Workspace" defaultOpen>
+        <SidebarNavLink href="/projects">Projects</SidebarNavLink>
+      </SidebarNavGroup>
+    </SidebarContent>
+    <SidebarFooter>
+      <div data-sidebar-persist="" className="flex items-center gap-2">
+        <Avatar className="size-8">
+          <AvatarImage src="/avatar.jpg" alt="" />
+          <AvatarFallback>YO</AvatarFallback>
+        </Avatar>
+        <Button variant="ghost" size="sm" className="text-xs">
+          Sign out
+        </Button>
+      </div>
+    </SidebarFooter>
+  </>
+);
+
+<SidebarProvider>
+  <div className="flex h-screen">
+    <aside className="flex w-64 flex-col border-r">{sidebar}</aside>
+    <div className="flex w-9 flex-col items-center border-l pt-2">
+      <SidebarCollapseTrigger />
+    </div>
+    <main className="flex-1">{/* page */}</main>
+  </div>
+</SidebarProvider>`,
+  },
+  {
+    slug: "page-header",
+    title: "Page header",
+    description: "Title, optional description, and action buttons for app pages.",
+    code: `import { Button } from "matcha-ui";
+import { PageHeader } from "matcha-ui";
+
+<PageHeader
+  title="Customers"
+  description="Manage invitations and billing contacts."
+  actions={<Button size="sm">Invite</Button>}
+/>`,
+  },
+  {
+    slug: "empty-state",
+    title: "Empty state",
+    description: "Placeholder panels for empty lists, search results, and onboarding.",
+    code: `import { Button } from "matcha-ui";
+import { EmptyState } from "matcha-ui";
+import { Tray } from "phosphor-react";
+
+<EmptyState
+  icon={Tray}
+  title="No projects"
+  description="Create a project to get started."
+  action={<Button size="sm">Create project</Button>}
+/>`,
+  },
+  {
+    slug: "kpi-card",
+    title: "KPI card",
+    description: "Metric tiles for dashboards (MRR, usage, churn).",
+    code: `import { KpiCard } from "matcha-ui";
+
+<div className="grid gap-4 sm:grid-cols-3">
+  <KpiCard label="MRR" value="$48.2k" hint="+12% MoM" />
+  <KpiCard label="Seats" value="42" />
+</div>`,
+  },
+  {
+    slug: "data-table-toolbar",
+    title: "Data table toolbar",
+    description: "Search and actions row above dense data tables.",
+    code: `import { Button } from "matcha-ui";
+import { DataTableToolbar } from "matcha-ui";
+import { Input } from "matcha-ui";
+
+<DataTableToolbar
+  start={<Input placeholder="Search…" className="max-w-xs" />}
+  end={<Button variant="outline" size="sm">Columns</Button>}
+/>`,
+  },
+  {
     slug: "tooltip",
     title: "Tooltip",
     description: "Contextual hints for dense interfaces.",
