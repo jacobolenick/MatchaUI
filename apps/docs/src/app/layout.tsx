@@ -14,13 +14,35 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ??
+  (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "http://localhost:3000");
+
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: {
     default: "Matcha UI",
     template: "%s · Matcha UI",
   },
   description:
     "Matcha UI — responsive SaaS components for React, built with Tailwind CSS and Radix UI.",
+  openGraph: {
+    type: "website",
+    siteName: "Matcha UI",
+    locale: "en_US",
+    images: [
+      {
+        url: "/og.jpg",
+        width: 1024,
+        height: 913,
+        alt: "Matcha UI — design system for modern SaaS products",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: ["/og.jpg"],
+  },
 };
 
 export default function RootLayout({

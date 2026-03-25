@@ -6,6 +6,16 @@ export const metadata: Metadata = {
   title: "Matcha UI — SaaS components for React",
   description:
     "Production-ready React components, OKLCH design tokens, and docs—built with Tailwind CSS v4 and Radix UI.",
+  openGraph: {
+    title: "Matcha UI — SaaS components for React",
+    description:
+      "Production-ready React components, OKLCH design tokens, and docs—built with Tailwind CSS v4 and Radix UI.",
+  },
+  twitter: {
+    title: "Matcha UI — SaaS components for React",
+    description:
+      "Production-ready React components, OKLCH design tokens, and docs—built with Tailwind CSS v4 and Radix UI.",
+  },
 };
 
 export default function HomePage() {
