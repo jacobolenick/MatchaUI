@@ -3,6 +3,14 @@
 @source "../../../../packages/matcha-ui/src/**/*.tsx";
 @import "matcha-ui/styles";
 
+/* Prefer Geist when loaded on <body> (see layout.tsx font variables). */
+@layer base {
+  body {
+    --font-sans-stack: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+    --font-mono-stack: var(--font-geist-mono), ui-monospace, monospace;
+  }
+}
+
 /* Scrollable regions stay scrollable (wheel / trackpad) without showing a scrollbar track. */
 @layer utilities {
   .scrollbar-hide {

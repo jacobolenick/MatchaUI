@@ -1,4 +1,5 @@
 export { cn } from "./lib/utils";
+export { cssVar } from "./tokens";
 
 export * from "./components/ui/accordion";
 export * from "./components/ui/alert";

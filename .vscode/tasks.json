@@ -18,7 +18,7 @@
       "id": "docsSimpleBrowser",
       "type": "command",
       "command": "simpleBrowser.show",
-      "args": ["http://localhost:4324/docs"]
+      "args": ["http://localhost:4325/docs"]
     }
   ]
 }

@@ -30,15 +30,23 @@ export function DocsSideNav() {
                 Installation
               </Link>
             </li>
-            <li>
-              <Link
-                href="/docs/icons"
-                className="text-foreground hover:text-primary block rounded-md py-1"
-              >
-                Phosphor icons
-              </Link>
-            </li>
-          </ul>
+                <li>
+                  <Link
+                    href="/docs/icons"
+                    className="text-foreground hover:text-primary block rounded-md py-1"
+                  >
+                    Phosphor icons
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/docs/tokens"
+                    className="text-foreground hover:text-primary block rounded-md py-1"
+                  >
+                    Design tokens
+                  </Link>
+                </li>
+              </ul>
         </div>
         <div>
           <p className="text-muted-foreground mb-2 text-xs font-semibold tracking-wider uppercase">
