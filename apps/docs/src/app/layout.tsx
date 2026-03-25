@@ -43,6 +43,10 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     images: ["/og.jpg"],
   },
+  icons: {
+    icon: [{ url: "/icon.png", type: "image/png", sizes: "160x160" }],
+    apple: [{ url: "/icon.png", type: "image/png", sizes: "160x160" }],
+  },
 };
 
 export default function RootLayout({
